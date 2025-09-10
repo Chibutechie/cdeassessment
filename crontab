@@ -1,0 +1,1 @@
+0 0 * * * /mnt/c/Users/USER/Desktop/CDE/etl.sh >> /mnt/c/Users/USER/Desktop/CDE/etl.log 2>&1
