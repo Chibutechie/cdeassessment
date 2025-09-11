@@ -1,90 +1,98 @@
-# Parch and Posey ETL Project
+# Parch & Posey ETL Project
 
-## Overview
+This project demonstrates hands-on skills in **Linux and Bash scripting**.
+It automates the **Extract, Transform, and Load (ETL)** process using the *Annual Enterprise Survey 2023 (Provisional)* dataset from [stats.govt.nz](https://www.stats.govt.nz/).
 
-This project demonstrates a simple **ETL (Extract, Transform, Load)** pipeline built in **Bash**.
-It uses the *Annual Enterprise Survey 2023 provisional dataset* from **[stats.govt.nz](https://www.stats.govt.nz/)** as a sample dataset.
+---
 
-The pipeline automates:
+## Features
 
-1. **Extract** – Download raw data from the source.
-2. **Transform** – Clean and restructure selected columns.
-3. **Load** – Store transformed data into the final *Gold layer*.
+**File Movement**
 
-This project can be used as a beginner-friendly ETL framework or adapted for larger data engineering workflows.
+* Moves CSV and JSON files between directories.
+* Organizes datasets for better workflow management.
+
+**ETL Pipeline**
+
+* **Extract** → Download CSV from an external URL using `curl`.
+* **Transform** → Clean and restructure data by selecting and renaming specific columns.
+* **Load** → Copy transformed data into a Gold directory as the final dataset.
+
+**Script Automation**
+
+* Creates necessary directories (`raw/`, `Transformed/`, `Gold/`).
+* Ensures consistent data flow from ingestion to storage.
 
 ---
 
 ## Project Structure
 
-Scripts/
-│── .gitignore                                   
-│── bash_script/
-│   ├── destinantion_file
-│   ├── my_csv          
-│   ├── json-and-csv.sh           
-│   ├-- etl.sh
-│
-│         
-│── sql_script/
-
-|── .gitignore
-│── .gitkeep
-│ 
-├──README.md             
-
-
----
-
-## Dataset
-
-* **Source**: [Annual Enterprise Survey – 2023 Financial Year (Provisional)](https://www.stats.govt.nz/large-datasets/csv-files-for-download/)
-* **Format**: CSV
-* **Columns extracted**:
-
-  * year
-  * value
-  * units
-  * variable_code
-
----
-
-## Usage
-
-### Run the ETL script manually
-
 ```bash
-bash etl.sh
+Scripts/
+│── .gitignore
+│── .gitkeep
+│── bash_script/
+│   ├── destination_file/
+│   ├── my_csv/
+│   ├── json-and-csv.sh
+│   ├── etl.sh
+│
+│── sql_script/
+│
+├── README.md
 ```
 
-After running, you should see:
+---
 
-* `raw/` → contains the downloaded source file.
-* `Transformed/` → contains `new_data.csv` with selected columns.
-* `Gold/` → contains the final copy of `new_data.csv`.
+## Setup
 
+### 1. Install Dependencies
 
-## Requirements
+You need a **Unix/Linux environment** (or Git Bash on Windows) with:
 
-* Unix/Linux environment (or Git Bash on Windows)
-* `curl` installed
-* `awk` installed
+* `curl`
+* `awk`
+
+On Ubuntu/WSL2:
+
+```bash
+sudo apt update
+sudo apt install curl -y
+```
 
 ---
 
-## Future Enhancements
+## Running Each Part
 
-* Add conversion of CSV files into JSON format.
-* Store both JSON and CSV files in a `JSON_and_CSV/` directory.
-* Improve error handling and add validation checks.
-* Extend transformations to support filtering and aggregations.
+### 1. ETL Pipeline
+
+```bash
+bash bash_script/etl.sh
+```
+
+Workflow:
+
+1. Extract → Downloads the raw dataset into `raw/`.
+2. Transform → Selects specific columns (`year`, `value`, `units`, `variable_code`) and saves them in `Transformed/new_data.csv`.
+3. Load → Copies the final file into `Gold/`.
+
+### 2. File Movement
+
+```bash
+bash bash_script/json-and-csv.sh
+```
+
+* Moves all `.csv` and `.json` files from a source folder into `json_and_CSV/`.
+* Useful for organizing or archiving datasets.
 
 ---
 
-## Contributing
+## Troubleshooting
 
-Contributions are welcome!
+* **`curl: command not found`** → Install curl (`sudo apt install curl -y`).
+* **Output folders missing** → Script automatically creates them, but check folder permissions.
+* **Permission denied** → Make scripts executable:
 
-* Fork the repo
-* Create a feature branch
-* Submit a pull request
+  ```bash
+  chmod +x bash_script/*.sh
+  ```
