@@ -15,7 +15,23 @@ This project can be used as a beginner-friendly ETL framework or adapted for lar
 
 ---
 
-## 🛠 Project Structure
+## Project Structure
+
+Scripts/
+│── .gitignore                                   
+│── bash_script/
+│   ├── destinantion_file
+│   ├── my_csv          
+│   ├── json-and-csv.sh           
+│   ├-- etl.sh
+│
+│         
+│── sql_script/
+
+|── .gitignore
+│── .gitkeep
+│ 
+├──README.md             
 
 
 ---
