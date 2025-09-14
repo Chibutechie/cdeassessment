@@ -4,6 +4,10 @@ This repository documents the conceptual design of a scalable and flexible data 
 
 **Design Diagram:** [View on Lucidchart](https://lucid.app/lucidspark/a643a655-cf9b-4bda-acbd-72a540a0a7eb/edit?viewport_loc=-6332%2C-1123%2C22239%2C10682%2C0_0&invitationId=inv_48ed13af-0db7-4c51-aee2-0d9a0ea81b72)
 
+[DataPipelineDesign.PDF](https://github.com/user-attachments/files/22324034/CopyOfDataPipelineDesign.PDF)
+
+
+
 ---
 
 ## Design Overview
