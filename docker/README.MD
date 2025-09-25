@@ -1,6 +1,6 @@
 # Dockerized Python ETL Pipeline
 
-This project demonstrates an **ETL (Extract, Transform, Load) pipeline** built with Python and PostgreSQL, fully dockerized. The pipeline extracts data from a source (Pokémon API), transforms it using Python, and loads it into a PostgreSQL database.
+In this project I have buit an **ETL pipeline** built with Python and PostgreSQL, fully dockerized. The pipeline extracts data from a source (Pokémon API), transforms it using Python, and loads it into a PostgreSQL database.
 
 ---
 
@@ -8,7 +8,7 @@ This project demonstrates an **ETL (Extract, Transform, Load) pipeline** built w
 
 The ETL pipeline automates the process of collecting, processing, and storing data:
 
-1. **Extract:** Data is pulled from an external source (API or CSV).
+1. **Extract:** Data is pulled from an external source using an API.
 2. **Transform:** The data is cleaned, normalized, and structured into a DataFrame.
 3. **Load:** The processed data is inserted into a PostgreSQL database table.
 
@@ -21,49 +21,32 @@ The project also includes a Bash script to orchestrate container management, net
 ```
 docker/
 │
-├── Dockerfile             # Docker image for the ETL pipeline
-├── docker_var.sh          # Bash script to build and run containers
-├── .env                   # Environment variables for DB credentials and config
-├── requirements.txt       # Python dependencies
-├── extract.py             # Python script to extract data
-├── transform.py           # Python script to transform data
-├── load.py                # Python script to load data into Postgres
-├── run_pipeline.py        # Main Python script to run the full ETL process
-└── README.md              # Project documentation
-```
+├── Dockerfile             
+├── docker_var.sh          
+├── .env                   
+├── requirements.txt     
+├── extract.py            
+├── transform.py           
+├── load.py                
+├── run_pipeline.py        
+└── README.md              
+``
 
-> `.env` is provided as a template. Users should create their own `.env` with credentials and source URLs.
+> `.env` is provided as a template. You can create your own when reproducing this work. 
 
 ---
 
 ## Prerequisites
 
 * Docker installed and running
-* Internet access (to download source data)
-* Optional: `psql` or DBeaver to inspect the database
+* `psql` to inspect the database
 
 ---
 
 ## Environment Variables
 
-Create a `.env` file in the `docker/` directory:
-
-```env
-POSTGRES_USER=postgres
-POSTGRES_PASSWORD=024899
-POSTGRES_DB=data_bank
-DB_NAME=data_bank
-DB_USER=postgres
-DB_PASSWORD=024899
-DB_HOST=db
-DB_PORT=5432
-POSTGRES_CONTAINER_NAME=postgres_cont
-ETL_CONTAINER_NAME=etl_cont
-ETL_IMAGE_NAME=etl_pipeline
-NETWORK_NAME=etl_network
-SOURCE_URL=https://pokeapi.co/api/v2/pokemon
-```
-
+> Copy the provided `.env.`example file and rename it to `.env`.
+> Update the `.env` file with your database credentials and the data source URL.
 > Do **not** commit `.env` to GitHub as it contains sensitive information.
 
 ---
@@ -132,16 +115,8 @@ Loaded 20 rows into 'pokemon' table
 * **Using `psql`:**
 
 ```bash
-psql -h localhost -p 55432 -U postgres -d data_bank
+psql -h localhost -p 55432 -U postgres -d your-database
 ```
-
-* **Using DBeaver:**
-
-  * Host: `localhost`
-  * Port: `55432`
-  * Database: `data_bank`
-  * Username: `postgres`
-  * Password: `024899`
 
 ---
 
