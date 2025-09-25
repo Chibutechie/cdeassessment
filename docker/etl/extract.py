@@ -1,20 +1,15 @@
-import requests
-import pandas as pd
-import os
-
 def extract():
-        url = os.getenv("URL")
+    import requests
+    import pandas as pd
+
     try:
-        resp = requests.get(url, timeout=10)
-        resp.raise_for_status()
-        data = resp.json()
-        df = pd.json_normalize(data.get("results", []))
+        url = "https://pokeapi.co/api/v2/pokemon?limit=20"
+        response = requests.get(url)
+        response.raise_for_status()  # check for HTTP errors
+        data = response.json()
+        df = pd.json_normalize(data, 'results')
+        print(f"Extracted rows: {len(df)}")
         return df
     except Exception as e:
-        print(f"Error while extracting: {e}")
-        return None
-
-if __name__ == "__main__":
-    df = extract()
-    if df is not None:
-        print(df)
+        print(f"ETL pipeline failed during extraction: {e}")
+        return pd.DataFrame()
