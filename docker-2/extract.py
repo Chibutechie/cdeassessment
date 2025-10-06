@@ -1,13 +1,12 @@
 import kaggle
 import pandas as pd
 
-# Authenticate with Kaggle API
 kaggle.api.authenticate()
 
-# Download and unzip the dataset
+
 kaggle.api.dataset_download_files('carrie1/ecommerce-data', path='.', unzip=True)
 
-# Get dataset metadata
+
 kaggle.api.dataset_metadata('carrie1/ecommerce-data', path='.')
 
 

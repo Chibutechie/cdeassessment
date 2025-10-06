@@ -1,0 +1,23 @@
+# Building an ELT Pipeline 
+
+Steps Taken:
+
+* I got the database ready by creating the database that my data will be loaded to. For this, I used PSQL. On the new database,
+I created schemas for `staging` and `transformed`. 
+
+* I then moved to my IDE `VS Code` and created the project repo, then pushed it to my remote git repo. 
+
+*I created the virtual environment for my project
+
+*I created the .env file and made sure it doesn't push to github.
+
+* I created my requirement.txt file and added libraries that will be needed for builidng my pipeline at every stage. 
+
+* i created python files - extract.py, load.py, tranform.py --- 
+
+        EXTRACT.PY
+* For this project, I am going to be ingesting data from Kaggle using the Kaggle API. For this, I ran the script on my extract.py file
+
+* I made sure that the Kaggle key I had was authenticated, and then I tried extracting the CSV file and the metadata.
+         
+         LOAD.PY
