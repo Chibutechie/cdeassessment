@@ -32,6 +32,8 @@ docker/
 └── README.md              
 ``
 
+---
+
 `.env` is provided as a template. You can create your own when reproducing this work. 
 
 ---
