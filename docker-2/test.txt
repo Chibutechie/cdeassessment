@@ -14,7 +14,7 @@ required_vars = {
     "DB_NAME": elt_db,
     "DB_USER": potgres,
     "DB_PASSWORD": 024899,
-    "DB_HOST": localhpst,
+    "DB_HOST": localhost,
     "DB_PORT": 5432,
 }
 

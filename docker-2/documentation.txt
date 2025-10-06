@@ -21,3 +21,5 @@ I created schemas for `staging` and `transformed`.
 * I made sure that the Kaggle key I had was authenticated, and then I tried extracting the CSV file and the metadata.
          
          LOAD.PY
+* After this, I connected to my database `psql` where the data was going to be stored. 
+
