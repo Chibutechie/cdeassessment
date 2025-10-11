@@ -32,7 +32,9 @@ docker/
 └── README.md              
 ``
 
-> `.env` is provided as a template. You can create your own when reproducing this work. 
+---
+
+`.env` is provided as a template. You can create your own when reproducing this work. 
 
 ---
 
@@ -115,7 +117,7 @@ Loaded 20 rows into 'pokemon' table
 * **Using `psql`:**
 
 ```bash
-psql -h localhost -p 55432 -U postgres -d your-database
+psql -h localhost -p 5432 -U postgres -d your-database
 ```
 
 ---
