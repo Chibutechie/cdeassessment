@@ -1,4 +1,4 @@
-# Parch & Posey ETL Project
+# Bash Scripting, ETL, and SQL Automation
 
 This project demonstrates hands-on skills in **Linux and Bash scripting**.
 It automates the **Extract, Transform, and Load (ETL)** process using the *Annual Enterprise Survey 2023 (Provisional)* dataset from [stats.govt.nz](https://www.stats.govt.nz/).
